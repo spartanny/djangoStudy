@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+from .settings import STATIC_ROOT
 
 urlpatterns = [
     path('pages/', include('pages.urls')),
@@ -24,3 +25,9 @@ urlpatterns = [
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+
+# urlpatterns += staticfiles_urlpatterns('',(
+#     r'^static/(?P<path>.*)$',
+#     'django.views.static.serve',
+#     {'document_root': STATIC_ROOT}
+# ))
